@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/menu/Button.gd" type="Script" id=1]
+[ext_resource path="res://arts/menuScreenTemp.png" type="Texture" id=2]
+
+[node name="MenuScreen" type="Node2D"]
+
+[node name="imageMenu" type="Sprite" parent="."]
+position = Vector2( 512, 298.563 )
+scale = Vector2( 1.77625, 1.52338 )
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+show_behind_parent = true
+margin_left = 37.0
+margin_top = 278.0
+margin_right = 220.0
+margin_bottom = 344.0
+script = ExtResource( 1 )
+
+[connection signal="button_down" from="Button" to="Button" method="_on_Button_button_down"]
