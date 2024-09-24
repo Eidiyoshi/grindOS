@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/computer-monitor-drawing-cartoon-png-favpng-fGEexiviaDW59uhgpxGrp5L5m.jpg-38de2bebdfce26fff2d599d66353a79c.stex"
+path="res://.import/computer-monitor-drawing-cartoon-png-favpng-fGEexiviaDW59uhgpxGrp5L5m.png-56cb51c0ede344cb5f239950b4455fce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/menuArts/computer-monitor-drawing-cartoon-png-favpng-fGEexiviaDW59uhgpxGrp5L5m.jpg"
-dest_files=[ "res://.import/computer-monitor-drawing-cartoon-png-favpng-fGEexiviaDW59uhgpxGrp5L5m.jpg-38de2bebdfce26fff2d599d66353a79c.stex" ]
+source_file="res://arts/menuArts/computer-monitor-drawing-cartoon-png-favpng-fGEexiviaDW59uhgpxGrp5L5m.png"
+dest_files=[ "res://.import/computer-monitor-drawing-cartoon-png-favpng-fGEexiviaDW59uhgpxGrp5L5m.png-56cb51c0ede344cb5f239950b4455fce.stex" ]
 
 [params]
 

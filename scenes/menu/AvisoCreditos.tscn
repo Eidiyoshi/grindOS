@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://arts/artText/artText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/menu/AvisoCreditos.gd" type="Script" id=2]
 [ext_resource path="res://arts/artText/TemaText.tres" type="Theme" id=3]
 [ext_resource path="res://arts/artText/hoverImg.tres" type="StyleBox" id=4]
 [ext_resource path="res://arts/menuArts/edukof.jpg" type="Texture" id=5]
+[ext_resource path="res://arts/menuArts/laerte.jpg" type="Texture" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -84,6 +85,12 @@ custom_styles/normal = SubResource( 8 )
 position = Vector2( 917, 262.125 )
 scale = Vector2( 1.35748, 0.890931 )
 texture = ExtResource( 5 )
+
+[node name="Laerte" type="Sprite" parent="."]
+position = Vector2( 124, 491 )
+rotation = -0.326377
+scale = Vector2( 0.821685, 0.787216 )
+texture = ExtResource( 6 )
 
 [connection signal="pressed" from="CONTINUAR/ButtonContinuar" to="." method="_on_ButtonContinuar_pressed"]
 [connection signal="pressed" from="VOLTAR/ButtonVoltar" to="." method="_on_ButtonVoltar_pressed"]
