@@ -17,10 +17,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	
-	var next_level_resource = load("res://scenes/menu/AvisoCreditos.tscn")
-	var next_level = next_level_resource.instance()
-	get_parent().add_child(next_level)
+	get_tree().change_scene("res://scenes/menu/AvisoCreditos.tscn")
 	
 	call_deferred("free")
 

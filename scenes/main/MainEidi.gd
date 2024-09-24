@@ -8,9 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var menu_recurso = load("res://scenes/menu/MenuScreen.tscn")
-	var menu_instancia = menu_recurso.instance()
-	add_child(menu_instancia)
+	get_tree().change_scene("res://scenes/menu/MenuScreen.tscn")
 	# Replace with function body.
 
 
