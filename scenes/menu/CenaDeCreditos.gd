@@ -19,12 +19,8 @@ func _ready():
 func _process(delta):
 	
 	$Criadores.add_color_override("font_color", Color(red, green, blue))
-	$Professor.add_color_override("font_color", Color(red-0.5, green-0.5, blue-0.5))
-	$Agradecimentos.add_color_override("font_color", Color(red + 0.4 , green + 0.4, blue +0.4) )
-	
-	print(red)
-	print(blue)
-	print(green)
+	$Professor.add_color_override("font_color", Color(green, blue, red))
+	$Agradecimentos.add_color_override("font_color", Color(blue , red, green) )
 	
 	if(flagRed):
 		red = red + 0.01
@@ -41,19 +37,19 @@ func _process(delta):
 	else:
 		blue = blue - 0.02
 	
-	if( red >= 1 ):
+	if( red >= 0.8 ):
 		flagRed = false
-	if( red <= 0):
+	if( red <= 0.1):
 		flagRed = true
 	
-	if( blue >= 1 ):
+	if( blue >= 0.8 ):
 		flagBlue = false
-	if( blue <= 0):
+	if( blue <= 0.1):
 		flagBlue = true
 	
-	if( green >= 1 ):
+	if( green >= 0.8 ):
 		flagGreen = false
-	if( green <= 0):
+	if( green <= 0.1):
 		flagGreen = true
 	
 	

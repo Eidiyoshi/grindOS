@@ -16,8 +16,10 @@ func _ready():
 #	pass
 
 
-func _on_Button_pressed():
+func _on_ButtonCreditos_pressed():
 	get_tree().change_scene("res://scenes/menu/AvisoCreditos.tscn")
 	
 	call_deferred("free")
 
+func _on_ButtonSair_pressed():
+	get_tree().quit()
