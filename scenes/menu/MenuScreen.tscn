@@ -88,5 +88,5 @@ custom_styles/pressed = ExtResource( 4 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/normal = SubResource( 3 )
 
-[connection signal="pressed" from="MenusTxt/CreditosTxt/ButtonCreditos" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MenusTxt/CreditosTxt/ButtonCreditos" to="." method="_on_ButtonCreditos_pressed"]
 [connection signal="pressed" from="MenusTxt/SairTxt/ButtonSair" to="." method="_on_ButtonSair_pressed"]
