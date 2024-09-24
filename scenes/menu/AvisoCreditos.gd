@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -16,7 +16,10 @@ func _ready():
 #	pass
 
 
-func _on_Process_area_entered(area):
-	if area.name == "CPUMouseArea":
-		var CPU = get_node("CPU")
-		print("AAAAA")
+func _on_ButtonContinuar_pressed():
+	get_tree().change_scene("res://scenes/menu/CenaDeCreditos.tscn")
+	call_deferred("free")
+
+func _on_ButtonVoltar_pressed():
+	get_tree().change_scene("res://scenes/menu/MenuScreen.tscn")
+	call_deferred("free")
