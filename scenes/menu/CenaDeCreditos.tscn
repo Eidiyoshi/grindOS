@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://arts/artText/artText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://arts/artText/hoverImg.tres" type="StyleBox" id=2]
 [ext_resource path="res://scenes/menu/CenaDeCreditos.gd" type="Script" id=3]
+[ext_resource path="res://arts/menuArts/fuckweball.png" type="Texture" id=4]
+[ext_resource path="res://scenes/menu/Fuckweball.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -29,7 +31,7 @@ margin_right = 654.0
 margin_bottom = 424.0
 custom_colors/font_color = Color( 0, 0.0862745, 1, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "Professore Orientador
+text = "Professor Orientador
 Maurício Araujo Dias"
 
 [node name="Agradecimentos" type="Label" parent="."]
@@ -60,5 +62,19 @@ custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/focus = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
+
+[node name="Fuckweball" type="Sprite" parent="."]
+position = Vector2( 867, 231 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 505.0
+margin_top = 497.0
+margin_right = 1433.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 1 )
+text = "tela nao aprovada 
+pelo professor"
 
 [connection signal="pressed" from="Sair/Button" to="." method="_on_Button_pressed"]

@@ -23,3 +23,10 @@ func _on_ButtonCreditos_pressed():
 
 func _on_ButtonSair_pressed():
 	get_tree().quit()
+
+
+
+func _on_ButtonJogar_pressed():
+	get_tree().change_scene("res://scenes/menu/turnOnScreen.tscn") # Replace with function body.
+
+	call_deferred("free")
