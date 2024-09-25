@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OBackground3.png-9b8e6e54c2c9528007c35f06418c4669.stex"
+path="res://.import/estranho.png-4233d16891ab7b23f91de6188cc51312.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/OBackground3.png"
-dest_files=[ "res://.import/OBackground3.png-9b8e6e54c2c9528007c35f06418c4669.stex" ]
+source_file="res://arts/menuArts/estranho.png"
+dest_files=[ "res://.import/estranho.png-4233d16891ab7b23f91de6188cc51312.stex" ]
 
 [params]
 
