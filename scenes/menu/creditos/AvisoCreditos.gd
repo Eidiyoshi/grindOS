@@ -1,4 +1,4 @@
-extends Button
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -14,3 +14,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_ButtonContinuar_pressed():
+	get_tree().change_scene("res://scenes/menu/creditos/CenaDeCreditos.tscn")
+	call_deferred("free")
+
+func _on_ButtonVoltar_pressed():
+	get_tree().change_scene("res://scenes/menu/MenuScreen.tscn")
+	call_deferred("free")

@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_ButtonCreditos_pressed():
-	get_tree().change_scene("res://scenes/menu/AvisoCreditos.tscn")
+	get_tree().change_scene("res://scenes/menu/creditos/AvisoCreditos.tscn")
 	
 	call_deferred("free")
 
@@ -27,6 +27,6 @@ func _on_ButtonSair_pressed():
 
 
 func _on_ButtonJogar_pressed():
-	get_tree().change_scene("res://scenes/menu/turnOnScreen.tscn") # Replace with function body.
+	get_tree().change_scene("res://scenes/fases/fase1/fase1Contexto.tscn") # Replace with function body.
 
 	call_deferred("free")

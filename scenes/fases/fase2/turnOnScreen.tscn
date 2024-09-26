@@ -4,7 +4,7 @@
 [ext_resource path="res://arts/menuArts/computer-monitor-drawing-cartoon-png-favpng-fGEexiviaDW59uhgpxGrp5L5m.png" type="Texture" id=2]
 [ext_resource path="res://arts/menuArts/mesa.png" type="Texture" id=3]
 [ext_resource path="res://arts/menuArts/Sem título.png" type="Texture" id=4]
-[ext_resource path="res://scenes/menu/turnOnScreen.gd" type="Script" id=5]
+[ext_resource path="res://scenes/fases/fase2/turnOnScreen.gd" type="Script" id=5]
 [ext_resource path="res://arts/artText/artText.tres" type="DynamicFont" id=6]
 [ext_resource path="res://arts/1000_F_766705726_28sevjq9HniPfiuSCfMKWcT4YBwUUMuB.jpg" type="Texture" id=7]
 
