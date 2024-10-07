@@ -1,5 +1,7 @@
 extends Area2D
 
+signal Connecting
+
 var connected = false
 var isInsideCPU = false
 var holding = false
@@ -11,14 +13,10 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == 1 and isInsideCPU:
 			holding = true
-			$CPUMouseArea.visible = true
+			emit_signal("Connecting")
+			$CPUMouseArea.visible = true	
 		elif event.button_index == 1:
 			holding = false
-			if not connected:
-				$Cable.position = position
-				$Cable.scale.x = 0
-				$CPUMouseArea.position = position
-				$CPUMouseArea.visible = false
 
 func _process(delta):
 	var mouse_pos = get_local_mouse_position()
@@ -28,12 +26,15 @@ func _process(delta):
 		$Cable.rotation = $Cable.rotation_degrees
 		$Cable.scale.x = sqrt(mouse_pos.x * mouse_pos.x + mouse_pos.y * mouse_pos.y)/205
 		$CPUMouseArea.position = mouse_pos
+		print("pos x")
+		print($Cable.position.x)
+		print("pos y")
+		print($Cable.position.y)
+		print("scale")
+		print($Cable.scale.x)
 		
 func _on_CPU_mouse_entered():
 	isInsideCPU = true
 
 func _on_CPU_mouse_exited():
 	isInsideCPU = false
-
-func _on_Process_area_entered(area):
-	print("BBBBB")

@@ -17,3 +17,5 @@ scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_Process_area_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_Process_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Process_mouse_exited"]

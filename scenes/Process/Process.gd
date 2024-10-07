@@ -1,22 +1,20 @@
 extends Area2D
 
+signal Connect
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var ConnectedCPU = false
+var isInsideProcess = false
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and isInsideProcess:
+			emit_signal("Connect")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Process_mouse_entered():
+	isInsideProcess = true
 
-
-func _on_Process_area_entered(area):
-	if area.name == "CPUMouseArea":
-		#var CPU = get_node("CPU")
-		print("AAAAA")
+func _on_Process_mouse_exited():
+	isInsideProcess = false
