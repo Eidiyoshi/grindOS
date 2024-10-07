@@ -18,5 +18,5 @@ func _ready():
 
 func _on_Process_area_entered(area):
 	if area.name == "CPUMouseArea":
-		var CPU = get_node("CPU")
+		#var CPU = get_node("CPU")
 		print("AAAAA")
