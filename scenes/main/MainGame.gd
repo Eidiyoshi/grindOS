@@ -6,6 +6,7 @@ var Data = [0, 0, 0]
 
 var ConnectingCPU = false
 var CPUConnected = self
+var MaxData = 50
 
 var RNG = RandomNumberGenerator.new()
 
@@ -25,14 +26,11 @@ func _on_Process_CancelConnect():
 func _on_Process_Connect(Component):
 	if ConnectingCPU:
 		print("Conectou com a CPU")
-		var CablePos = ($Process.global_position + $CPU.global_position) / 2
+		CPUConnected = Component
+		var CablePos = (CPUConnected.global_position + $CPU.global_position) / 2
 		$CPU/Cable.global_position = CablePos
 		$CPU/Cable.look_at($CPU.global_position)
-		$CPU/Cable.scale.x = sqrt($Process.global_position.x * $Process.global_position.x  + $Process.global_position.y * $Process.global_position.y) / 605
-		CPUConnected = Component
-			
-
-var debug = 0
+		$CPU/Cable.scale.x = sqrt(CPUConnected.global_position.x * CPUConnected.global_position.x  + CPUConnected.global_position.y * CPUConnected.global_position.y) / 605
 
 func _on_Clock_timeout():
 	if CPUConnected == $Process:
@@ -44,11 +42,12 @@ func _on_Clock_timeout():
 			if try >= 10:
 				pos = try - 10
 			try += 1
-		if try != 13:
+		if try != 13 and Data[pos] < MaxData:
 			CPUConnected.Data[pos] -= 1
+			Data[pos] += 1
 		else:
 			print("Acabou")
 		print(CPUConnected.Data)
+	elif CPUConnected == $RAM/DataA:
+		print("DataA")
 	print("Clock tick")
-	#print(debug)
-	debug += 1
