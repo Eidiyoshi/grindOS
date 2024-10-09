@@ -5,10 +5,15 @@
 [ext_resource path="res://arts/menuArts/mesa.png" type="Texture" id=3]
 [ext_resource path="res://arts/menuArts/Sem título.png" type="Texture" id=4]
 [ext_resource path="res://scenes/fases/fase2/turnOnScreen.gd" type="Script" id=5]
-[ext_resource path="res://arts/artText/artText.tres" type="DynamicFont" id=6]
+[ext_resource path="res://arts/Gura_skatista.png" type="Texture" id=6]
 
 [node name="turnOnScreen" type="Node2D"]
 script = ExtResource( 5 )
+
+[node name="GuraSkatista" type="Sprite" parent="."]
+position = Vector2( 508, 301.5 )
+scale = Vector2( 0.536864, 0.555861 )
+texture = ExtResource( 6 )
 
 [node name="Mesa" type="Sprite" parent="."]
 position = Vector2( 514, 478.625 )
@@ -40,13 +45,10 @@ scale = Vector2( 0.111429, 0.109034 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 374.0
-margin_top = 206.0
-margin_right = 1056.0
-margin_bottom = 250.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 6 )
-text = "Aperte no botão!!!!!!!!"
+margin_left = 380.0
+margin_top = 125.0
+margin_right = 813.0
+margin_bottom = 340.0
 
 [connection signal="mouse_entered" from="ComputerTower/ButtonLigar" to="." method="_on_ButtonLigar_mouse_entered"]
 [connection signal="mouse_exited" from="ComputerTower/ButtonLigar" to="." method="_on_ButtonLigar_mouse_exited"]
