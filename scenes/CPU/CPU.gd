@@ -2,12 +2,11 @@ extends Area2D
 
 signal Connecting
 
-var connected = false
 var isInsideCPU = false
 var holding = false
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -26,13 +25,7 @@ func _process(delta):
 		$Cable.rotation = $Cable.rotation_degrees
 		$Cable.scale.x = sqrt(mouse_pos.x * mouse_pos.x + mouse_pos.y * mouse_pos.y)/205
 		$CPUMouseArea.position = mouse_pos
-		print("pos x")
-		print($Cable.position.x)
-		print("pos y")
-		print($Cable.position.y)
-		print("scale")
-		print($Cable.scale.x)
-		
+
 func _on_CPU_mouse_entered():
 	isInsideCPU = true
 

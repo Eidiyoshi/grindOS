@@ -14,6 +14,12 @@ position = Vector2( 159, 187 )
 position = Vector2( 156, 450 )
 scale = Vector2( 2, 2 )
 
+[node name="Clock" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="Connecting" from="CPU" to="." method="_on_CPU_Connecting"]
+[connection signal="CancelConnect" from="Process" to="." method="_on_Process_CancelConnect"]
 [connection signal="Connect" from="Process" to="." method="_on_Process_Connect"]
 [connection signal="area_entered" from="Process" to="CPU" method="_on_Process_area_entered"]
+[connection signal="timeout" from="Clock" to="." method="_on_Clock_timeout"]
