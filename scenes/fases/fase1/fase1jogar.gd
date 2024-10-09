@@ -14,3 +14,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_buttonCheck_pressed():
+	if ($infosAltApagada.pressed or $comestivel.pressed or $grandeCap.pressed
+	or $correr.pressed or $destruicao.pressed or $batatas.pressed ):
+		$errou.popup()
+	
+	if($somenteLeitura.pressed and $naoVolatil.pressed and $infosImportantes.pressed):
+		get_tree().change_scene("res://scenes/fases/fase2/turnOnScreen.tscn")
+		call_deferred("free")
