@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://arts/artText/artText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://arts/artText/TemaText.tres" type="Theme" id=2]
 [ext_resource path="res://arts/menuArts/menuScreenTemp.png" type="Texture" id=3]
 [ext_resource path="res://arts/artText/hoverImg.tres" type="StyleBox" id=4]
 [ext_resource path="res://scenes/menu/MenuScreen.gd" type="Script" id=5]
+[ext_resource path="res://arts/menuArts/startgame.jpg" type="Texture" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -88,6 +89,18 @@ custom_styles/pressed = ExtResource( 4 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/normal = SubResource( 3 )
 
+[node name="comecar" type="Button" parent="."]
+show_behind_parent = true
+margin_top = -4.0
+margin_right = 1022.0
+margin_bottom = 596.0
+
+[node name="comecarImg" type="Sprite" parent="."]
+position = Vector2( 517, 300 )
+scale = Vector2( 0.870386, 0.917911 )
+texture = ExtResource( 6 )
+
 [connection signal="pressed" from="MenusTxt/JogarTxt/ButtonJogar" to="." method="_on_ButtonJogar_pressed"]
 [connection signal="pressed" from="MenusTxt/CreditosTxt/ButtonCreditos" to="." method="_on_ButtonCreditos_pressed"]
 [connection signal="pressed" from="MenusTxt/SairTxt/ButtonSair" to="." method="_on_ButtonSair_pressed"]
+[connection signal="pressed" from="comecar" to="." method="_on_comecar_pressed"]
