@@ -6,11 +6,11 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="CPU" parent="." instance=ExtResource( 1 )]
+[node name="CPU" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 1 )]
 position = Vector2( 174, 214 )
 
-[node name="ProcessList" parent="." instance=ExtResource( 2 )]
+[node name="ProcessList" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 2 )]
 position = Vector2( 26, 324 )
 
-[node name="RAM" parent="." instance=ExtResource( 4 )]
+[node name="RAM" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 4 )]
 position = Vector2( 354, 141 )
