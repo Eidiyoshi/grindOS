@@ -1,7 +1,5 @@
 extends Node
 
-enum SystemParts {None, CPU, Process}
-
 var Data = [0, 0, 0]
 
 var ConnectingCPU = false

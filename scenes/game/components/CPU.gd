@@ -12,7 +12,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == 1 and isInsideCPU:
 			holding = true
-			emit_signal("Connecting")
+			#emit_signal("Connecting")
 		elif event.button_index == 1:
 			holding = false
 
@@ -22,7 +22,9 @@ func _process(delta):
 		$Cable.position = Vector2((mouse_pos.x)/2,(mouse_pos.y)/2)
 		$Cable.rotation_degrees = atan2(mouse_pos.y,mouse_pos.x)
 		$Cable.rotation = $Cable.rotation_degrees
-		$Cable.scale.x = sqrt(mouse_pos.x * mouse_pos.x + mouse_pos.y * mouse_pos.y)/205
+		$Cable.scale.x = sqrt(mouse_pos.x * mouse_pos.x + mouse_pos.y * mouse_pos.y)/200
+	else :
+		$Cable.scale.x = 0
 
 func _on_CPU_mouse_entered():
 	isInsideCPU = true
