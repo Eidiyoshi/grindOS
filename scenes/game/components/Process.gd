@@ -31,3 +31,4 @@ func _on_Process_mouse_entered():
 
 func _on_Process_mouse_exited():
 	isInsideProcess = false
+

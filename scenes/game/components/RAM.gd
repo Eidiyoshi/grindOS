@@ -1,21 +1,23 @@
 extends Area2D
 
-signal ConnectingCPU
+signal ConnectRAM
+signal ConnectingRAM
 
-var isInsideCPU = false
 var holding = false
+var isInsideRAM = false
 
 func _ready():
-	pass
+	pass # Replace with function body.
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_pressed() and event.button_index == 1 and isInsideCPU:
+		if event.is_pressed() and event.button_index == 1 and isInsideRAM:
 			holding = true
-			emit_signal("ConnectingCPU",true)
+			emit_signal("ConnectingRAM",true)
 		elif event.button_index == 1:
-			holding = false
-			emit_signal("ConnectingCPU",false)
+			emit_signal("ConnectingRAM",false)
+			if isInsideRAM:
+				emit_signal("ConnectRAM",self)
 
 func _process(delta):
 	if holding:
@@ -25,8 +27,8 @@ func _process(delta):
 		$Cable.rotation = $Cable.rotation_degrees
 		$Cable.scale.x = sqrt(mouse_pos.x * mouse_pos.x + mouse_pos.y * mouse_pos.y)/180
 
-func _on_CPU_mouse_entered():
-	isInsideCPU = true
+func _on_RAM_mouse_entered():
+	isInsideRAM = true
 
-func _on_CPU_mouse_exited():
-	isInsideCPU = false
+func _on_RAM_mouse_exited():
+	isInsideRAM = false

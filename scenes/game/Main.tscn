@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/game/components/CPU.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game/components/ProcessList.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/game/components/SecondaryMemory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/game/components/RAM.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/game/Main.gd" type="Script" id=5]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="CPU" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 1 )]
 position = Vector2( 174, 214 )
@@ -13,4 +16,23 @@ position = Vector2( 174, 214 )
 position = Vector2( 26, 324 )
 
 [node name="RAM" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 4 )]
-position = Vector2( 354, 141 )
+position = Vector2( 405, 185 )
+
+[node name="SecondaryMemory" parent="." instance=ExtResource( 3 )]
+position = Vector2( 736, 186 )
+
+[node name="ConnectCPUDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ConnectRAMDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="ConnectingCPU" from="CPU" to="." method="_on_CPU_ConnectingCPU"]
+[connection signal="ConnectProcess" from="ProcessList" to="." method="_on_ProcessList_ConnectProcess"]
+[connection signal="ConnectRAM" from="RAM" to="." method="_on_RAM_ConnectRAM"]
+[connection signal="ConnectingRAM" from="RAM" to="." method="_on_RAM_ConnectingRAM"]
+[connection signal="ConnectPort" from="SecondaryMemory" to="." method="_on_SecondaryMemory_ConnectPort"]
+[connection signal="timeout" from="ConnectCPUDelay" to="." method="_on_ConnectDelay_timeout"]
+[connection signal="timeout" from="ConnectRAMDelay" to="." method="_on_ConnectRAMDelay_timeout"]
