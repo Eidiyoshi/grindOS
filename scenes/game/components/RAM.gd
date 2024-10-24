@@ -15,7 +15,9 @@ func _input(event):
 			holding = true
 			emit_signal("ConnectingRAM",true)
 		elif event.button_index == 1:
-			emit_signal("ConnectingRAM",false)
+			if holding == true:
+				holding = false
+				emit_signal("ConnectingRAM",false)
 			if isInsideRAM:
 				emit_signal("ConnectRAM",self)
 

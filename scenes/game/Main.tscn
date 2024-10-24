@@ -21,11 +21,11 @@ position = Vector2( 405, 185 )
 [node name="SecondaryMemory" parent="." instance=ExtResource( 3 )]
 position = Vector2( 736, 186 )
 
-[node name="ConnectCPUDelay" type="Timer" parent="."]
+[node name="ConnectRAMDelay" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
-[node name="ConnectRAMDelay" type="Timer" parent="."]
+[node name="ConnectCPUDelay" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
@@ -34,5 +34,5 @@ one_shot = true
 [connection signal="ConnectRAM" from="RAM" to="." method="_on_RAM_ConnectRAM"]
 [connection signal="ConnectingRAM" from="RAM" to="." method="_on_RAM_ConnectingRAM"]
 [connection signal="ConnectPort" from="SecondaryMemory" to="." method="_on_SecondaryMemory_ConnectPort"]
-[connection signal="timeout" from="ConnectCPUDelay" to="." method="_on_ConnectDelay_timeout"]
 [connection signal="timeout" from="ConnectRAMDelay" to="." method="_on_ConnectRAMDelay_timeout"]
+[connection signal="timeout" from="ConnectCPUDelay" to="." method="_on_ConnectCPUDelay_timeout"]

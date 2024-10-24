@@ -13,7 +13,7 @@ func _input(event):
 		if event.is_pressed() and event.button_index == 1 and isInsideCPU:
 			holding = true
 			emit_signal("ConnectingCPU",true)
-		elif event.button_index == 1:
+		elif event.button_index == 1 and holding == true:
 			holding = false
 			emit_signal("ConnectingCPU",false)
 
