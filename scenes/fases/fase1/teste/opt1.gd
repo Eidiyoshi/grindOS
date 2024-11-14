@@ -1,4 +1,4 @@
-extends Sprite
+extends Button
 
 
 # Declare member variables here. Examples:
@@ -8,13 +8,12 @@ extends Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	modulate.a = 0
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if( get_parent().visible ):
-		modulate.a += 1 * delta
-
-	if( !get_parent().visible ):
-		modulate.a = 0
+	if(get_tree().getAtividade() == 1):
+		get_parent().color = Color(0, 1, 0, 1);
+	else:
+		get_parent().color = Color(0, 0, 0, 1);

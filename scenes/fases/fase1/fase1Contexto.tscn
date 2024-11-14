@@ -17,13 +17,15 @@ margin_top = 77.0
 margin_right = 542.0
 margin_bottom = 547.0
 custom_fonts/font = ExtResource( 2 )
-text = "\"Bom dia, objeto de teste numero 31257, talvez esteja confuso com esta situação, não se preocupe, não faz diferença pra mim\" - Um aparente cientista diz com um tom 
+text = "\"Bom dia, objeto de teste numero 257, talvez esteja confuso com esta situação, não se preocupe, não se preocupe, faz diferença pra mim.\" - Um aparente cientista diz com um tom 
 
 Lembranças vagas chegam a sua cabeça, um pesquisador te levou para um sala branca, pediu-lhe para esperar um pouco, e de repente,luzes se apagam e você começou a dormir.
 
 \"Sua consciência foi transferida, temporariamente ou não, para uma máquina, agora seu objetivo é apenas completar testes pelo bem da ciência\"
 
-\"Ah, bem vindo ao GRInDOS, por que o nome? nem a gente sabe, talvez seja uma referencia a algum jogo ai\"
+Seus arredores não são nem um pouco familiares, pelo contrário, nem em seus sonhos poderia imaginar esse ambiente inóspito.
+
+\"Err...\" - ele procura por algo, que parece ser um roteiro - \"como primeiro teste, será preciso inicializar um sistema operacional, coisa suave, tranquilo, até você conseguiria fazer né?\"
 
 "
 autowrap = true
