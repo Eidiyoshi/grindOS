@@ -96,6 +96,7 @@ margin_right = 1022.0
 margin_bottom = 596.0
 
 [node name="comecarImg" type="Sprite" parent="."]
+visible = false
 position = Vector2( 517, 300 )
 scale = Vector2( 0.870386, 0.917911 )
 texture = ExtResource( 6 )
