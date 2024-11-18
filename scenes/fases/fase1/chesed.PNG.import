@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/estranho.png-4233d16891ab7b23f91de6188cc51312.stex"
+path="res://.import/chesed.PNG-d75a3ceef10b994a25c4d2fd33a8cc1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/menuArts/estranho.png"
-dest_files=[ "res://.import/estranho.png-4233d16891ab7b23f91de6188cc51312.stex" ]
+source_file="res://scenes/fases/fase1/chesed.PNG"
+dest_files=[ "res://.import/chesed.PNG-d75a3ceef10b994a25c4d2fd33a8cc1e.stex" ]
 
 [params]
 
