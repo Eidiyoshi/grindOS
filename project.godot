@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="grind.so"
-run/main_scene="res://scenes/menu/MenuScreen.tscn"
+run/main_scene="res://scenes/game/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerData="*res://PlayerData.gd"
 
 [gui]
 

@@ -8,17 +8,52 @@ var isInsideProcess = false
 
 var Data = [0, 0, 0, 0]
 
-var Max = 20
-var Min = 0
+var connected = false
+
+var Dificulty = 10
+
+var Max = PlayerData.level * Dificulty
+var Min = (PlayerData.level - 1) * Dificulty
+
+var tick = 0
+
+var CPU
+
+func spawn():
+	for i in Data.size() - 1:
+		Data[i] = RNG.randi_range(Min, Max)
+
+func process(aux):
+	if !CPU.Full():
+		Data[aux] -= 1
+		if aux != 3:
+			CPU.Data[aux] += 1
+		var total = 0
+		for i in Data.size() - 1:
+			total += Data[i]
+		if total == 0:
+			spawn()
+	
+		
+func _process(delta):
+	if connected:
+		tick += 1
+		if tick == PlayerData.processTick:
+			tick = 0
+			var aux = RNG.randi_range(0,3)
+			var flag = false
+			while Data[aux] == 0:
+				aux = RNG.randi_range(0,3)
+			if Data[aux] > 0:
+				process(aux)
+	else:
+		tick = 0
 
 func _ready():
+	CPU = get_parent().get_parent().get_node("CPU")
 	RNG.randomize()
-	var total = 0
-	for i in Data.size() - 2:
-		Data[i+1] = RNG.randi_range(Min, Max)
-		total += Data[i+1]
-	total += RNG.randi_range(Min, Max)
-	Data[0] = total
+	for i in Data.size() - 1:
+		Data[i] = RNG.randi_range(Min, Max)
 
 func _input(event):
 	if event is InputEventMouseButton:

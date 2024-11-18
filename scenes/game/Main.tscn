@@ -10,16 +10,17 @@
 script = ExtResource( 5 )
 
 [node name="CPU" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 1 )]
-position = Vector2( 174, 214 )
+position = Vector2( 179, 179 )
 
 [node name="ProcessList" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 2 )]
 position = Vector2( 26, 324 )
 
 [node name="RAM" parent="." groups=["ConnectWithCPU"] instance=ExtResource( 4 )]
-position = Vector2( 405, 185 )
+position = Vector2( 443, 179 )
+scale = Vector2( 1, 1 )
 
 [node name="SecondaryMemory" parent="." instance=ExtResource( 3 )]
-position = Vector2( 736, 186 )
+position = Vector2( 736, 179 )
 
 [node name="ConnectRAMDelay" type="Timer" parent="."]
 wait_time = 0.1
@@ -31,7 +32,7 @@ one_shot = true
 
 [connection signal="ConnectingCPU" from="CPU" to="." method="_on_CPU_ConnectingCPU"]
 [connection signal="ConnectProcess" from="ProcessList" to="." method="_on_ProcessList_ConnectProcess"]
-[connection signal="ConnectRAM" from="RAM" to="." method="_on_RAM_ConnectRAM"]
+[connection signal="ConnectRAMPort" from="RAM" to="." method="_on_RAM_ConnectRAMPort"]
 [connection signal="ConnectingRAM" from="RAM" to="." method="_on_RAM_ConnectingRAM"]
 [connection signal="ConnectPort" from="SecondaryMemory" to="." method="_on_SecondaryMemory_ConnectPort"]
 [connection signal="timeout" from="ConnectRAMDelay" to="." method="_on_ConnectRAMDelay_timeout"]

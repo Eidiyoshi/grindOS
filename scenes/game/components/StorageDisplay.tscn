@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/game/components/StorageDisplay.gd" type="Script" id=1]
+
+[node name="StorageDisplay" type="Control"]
+anchor_right = 0.21
+anchor_bottom = 0.667
+margin_bottom = -0.200043
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.0400085
+color = Color( 0, 0, 0, 1 )
+
+[node name="GuiBar" type="VBoxContainer" parent="."]
+margin_right = 215.0
+margin_bottom = 400.0
+grow_horizontal = 2
+alignment = 2
+
+[node name="TypeA" type="ColorRect" parent="GuiBar"]
+margin_top = 388.0
+margin_right = 215.0
+margin_bottom = 388.0
+color = Color( 1, 0, 0, 1 )
+
+[node name="TypeB" type="ColorRect" parent="GuiBar"]
+margin_top = 392.0
+margin_right = 215.0
+margin_bottom = 392.0
+color = Color( 0, 1, 0, 1 )
+
+[node name="TypeC" type="ColorRect" parent="GuiBar"]
+margin_top = 396.0
+margin_right = 215.0
+margin_bottom = 396.0
+color = Color( 0, 0, 1, 1 )
+
+[node name="Trash" type="ColorRect" parent="GuiBar"]
+margin_top = 400.0
+margin_right = 215.0
+margin_bottom = 400.0
+color = Color( 0.54902, 0.54902, 0.54902, 1 )

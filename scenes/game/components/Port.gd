@@ -4,9 +4,15 @@ signal Connect
 
 var isInsidePort = false
 
-func _ready():
-	pass # Replace with function body.
+var connected = false
 
+var Tick = 0
+
+var Storage = get_parent()
+
+func _ready():
+	#portTick = PlayerData.getPortTick()
+	pass # Replace with function body.
 
 func _input(event):
 	if event is InputEventMouseButton:

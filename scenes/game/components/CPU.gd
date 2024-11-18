@@ -5,6 +5,10 @@ signal ConnectingCPU
 var isInsideCPU = false
 var holding = false
 
+var Data = [0, 0, 0]
+
+var connected = false
+
 func _ready():
 	pass
 
@@ -24,6 +28,16 @@ func _process(delta):
 		$Cable.rotation_degrees = atan2(mouse_pos.y,mouse_pos.x)
 		$Cable.rotation = $Cable.rotation_degrees
 		$Cable.scale.x = sqrt(mouse_pos.x * mouse_pos.x + mouse_pos.y * mouse_pos.y)/180
+
+func Full():
+	var total = 0
+	for i in Data.size() - 1:
+		total += Data[i]
+	if total == PlayerData.maxStorageRAM:
+		return true
+	else:
+		return false
+
 
 func _on_CPU_mouse_entered():
 	isInsideCPU = true

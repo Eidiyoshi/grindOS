@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://arts/RAMBPlaceHolder.png" type="Texture" id=1]
-[ext_resource path="res://scenes/game/components/Port.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/game/components/Port.tscn" type="PackedScene" id=1]
+[ext_resource path="res://arts/RAMBPlaceHolder.png" type="Texture" id=2]
 [ext_resource path="res://scenes/game/components/SecondaryMemory.gd" type="Script" id=3]
 
 [node name="Memory" type="Area2D"]
@@ -10,15 +10,15 @@ script = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 31, 0 )
 scale = Vector2( 0.367521, 1.2 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
-[node name="PortA" parent="." instance=ExtResource( 2 )]
+[node name="PortA" parent="." instance=ExtResource( 1 )]
 position = Vector2( -87, -64 )
 
-[node name="PortB" parent="." instance=ExtResource( 2 )]
+[node name="PortB" parent="." instance=ExtResource( 1 )]
 position = Vector2( -87, 0 )
 
-[node name="PortC" parent="." instance=ExtResource( 2 )]
+[node name="PortC" parent="." instance=ExtResource( 1 )]
 position = Vector2( -87, 64 )
 
 [connection signal="Connect" from="PortA" to="." method="_on_PortA_Connect"]
