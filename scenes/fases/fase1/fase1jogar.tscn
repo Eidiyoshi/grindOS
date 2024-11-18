@@ -1,0 +1,159 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://arts/artText/textoPequeno.tres" type="DynamicFont" id=1]
+[ext_resource path="res://arts/faseArts/8698.jpg" type="Texture" id=2]
+[ext_resource path="res://arts/artText/artText.tres" type="DynamicFont" id=3]
+[ext_resource path="res://arts/artText/TemaText.tres" type="Theme" id=4]
+[ext_resource path="res://arts/faseArts/qingqueeeeeeeeeeeeeeeee.png" type="Texture" id=5]
+[ext_resource path="res://scenes/fases/fase1/fase1jogar.gd" type="Script" id=6]
+[ext_resource path="res://arts/faseArts/You missed.png" type="Texture" id=7]
+[ext_resource path="res://scenes/fases/fase1/youMissed.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.223529, 0.580392, 0.619608, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="fase1jogar" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="8698" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 518.375, 305.688 )
+scale = Vector2( 0.222435, 0.199137 )
+texture = ExtResource( 2 )
+
+[node name="textocontexto" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 37.0
+margin_right = 1024.0
+margin_bottom = 83.0
+custom_fonts/font = ExtResource( 1 )
+text = "Você se pergunta as utilidades e propriedades de uma memória ROM, se lembrando vagamente sobre a matéria de SO"
+align = 1
+
+[node name="infosImportantes" type="CheckBox" parent="."]
+margin_left = 148.0
+margin_top = 241.0
+margin_right = 172.0
+margin_bottom = 265.0
+custom_fonts/font = ExtResource( 1 )
+text = "Armazena informações
+importantes"
+
+[node name="naoVolatil" type="CheckBox" parent="."]
+margin_left = 827.0
+margin_top = 364.0
+margin_right = 954.0
+margin_bottom = 388.0
+custom_fonts/font = ExtResource( 1 )
+text = "Não Volatil"
+
+[node name="infosAltApagada" type="CheckBox" parent="."]
+margin_left = 257.0
+margin_top = 451.0
+margin_right = 474.0
+margin_bottom = 489.0
+custom_fonts/font = ExtResource( 1 )
+text = "Informações podem ser
+ alteradas e apagadas"
+
+[node name="comestivel" type="CheckBox" parent="."]
+margin_left = 421.0
+margin_top = 177.0
+margin_right = 539.0
+margin_bottom = 201.0
+custom_fonts/font = ExtResource( 1 )
+text = "Comestível"
+
+[node name="grandeCap" type="CheckBox" parent="."]
+margin_left = 157.0
+margin_top = 348.0
+margin_right = 338.0
+margin_bottom = 386.0
+custom_fonts/font = ExtResource( 1 )
+text = "Grande capacidade
+de armazenamento"
+
+[node name="somenteLeitura" type="CheckBox" parent="."]
+margin_left = 656.0
+margin_top = 177.0
+margin_right = 680.0
+margin_bottom = 201.0
+custom_fonts/font = ExtResource( 1 )
+text = "Informações apenas
+podem ser lidas"
+
+[node name="correr" type="CheckBox" parent="."]
+margin_left = 512.0
+margin_top = 277.0
+margin_right = 693.0
+margin_bottom = 315.0
+rect_pivot_offset = Vector2( -579, -322 )
+custom_fonts/font = ExtResource( 1 )
+text = "Consegue correr"
+
+[node name="destruicao" type="CheckBox" parent="."]
+margin_left = 556.0
+margin_top = 416.0
+margin_right = 755.0
+margin_bottom = 454.0
+custom_fonts/font = ExtResource( 1 )
+text = "Usado para destruir
+corações e sistemas"
+
+[node name="batatas" type="CheckBox" parent="."]
+margin_left = 111.0
+margin_top = 146.0
+margin_right = 310.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 1 )
+text = "Descascar batatas"
+
+[node name="checar" type="Label" parent="."]
+margin_left = 833.0
+margin_top = 497.0
+margin_right = 1007.0
+margin_bottom = 541.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Checar"
+uppercase = true
+
+[node name="buttonCheck" type="Button" parent="checar"]
+show_behind_parent = true
+margin_left = -5.0
+margin_right = 183.0
+margin_bottom = 50.0
+custom_styles/normal = SubResource( 1 )
+
+[node name="oiMadias" type="CheckBox" parent="."]
+margin_left = 378.0
+margin_top = 572.0
+margin_right = 586.0
+margin_bottom = 610.0
+custom_fonts/font = ExtResource( 1 )
+text = "Acenar para o madias"
+
+[node name="Qingqueeeeeeeeeeeeeeeee" type="Sprite" parent="."]
+position = Vector2( 76, 501 )
+rotation = 0.00523599
+scale = Vector2( 0.648118, 0.622638 )
+texture = ExtResource( 5 )
+
+[node name="errou" type="Popup" parent="."]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 1.0
+margin_bottom = 2.0
+
+[node name="youMissed" type="Sprite" parent="errou"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 510, 301.5 )
+scale = Vector2( 0.536458, 0.547222 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
+
+[connection signal="pressed" from="checar/buttonCheck" to="." method="_on_buttonCheck_pressed"]
