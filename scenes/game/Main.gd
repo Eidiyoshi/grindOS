@@ -14,9 +14,7 @@ func _ready():
 	connectedRAM = get_node("RAM")
 
 func _process(delta):
-	if connectedCPU.get_parent() == $ProcessList:
-		var a
-	elif connectedCPU == $RAM:
+	if connectedCPU == $RAM:
 		var b
 	if connectedRAM.get_parent() == $SecondaryMemory:
 		var c

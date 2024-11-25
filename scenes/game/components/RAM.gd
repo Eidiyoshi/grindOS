@@ -4,6 +4,7 @@ signal ConnectingRAM
 
 signal ConnectRAMPort
 
+#           A  B  C  Trash 
 var Data = [0, 0, 0, 0]
 
 var holding = false
@@ -13,8 +14,16 @@ var load_store = false
 
 var connected = false
 
+var SecondaryMemory
+
+var tick = 0
+
+var max_tries = 5
+
+var RNG = RandomNumberGenerator.new()
+
 func _ready():
-	pass # Replace with function body.
+	SecondaryMemory = get_parent().get_node("SecondaryMemory")
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -26,9 +35,26 @@ func _input(event):
 				holding = false
 				emit_signal("ConnectingRAM",false)
 
+func process(aux):
+	if !SecondaryMemory.Full():
+		Data[aux] -= 1
+		SecondaryMemory.Data[aux] += 1
+
 func _process(delta):
+	$Sprite/StorageDisplay.updateBar(Data)
 	if connected:
-		print(self.get_name())
+		tick += 1
+		if tick == PlayerData.processTick:
+			tick = 0
+			var aux = RNG.randi_range(0,2)
+			var flag = 0
+			while Data[aux] == 0 and max_tries >= flag:
+				aux = RNG.randi_range(0,2)
+				flag += 1
+			if Data[aux] > 0:
+				process(aux)
+	else:
+		tick = 0
 	if holding:
 		var mouse_pos = get_local_mouse_position()
 		$Cable.position = Vector2((mouse_pos.x)/2,(mouse_pos.y)/2)
@@ -45,12 +71,6 @@ func Full():
 	else:
 		return false
 
-func _on_RAM_mouse_entered():
-	isInsideRAM = true
-
-func _on_RAM_mouse_exited():
-	isInsideRAM = false
-
 func ConnectPortFunction(port):
 	emit_signal("ConnectRAMPort",port)
 
@@ -63,4 +83,8 @@ func _on_PortB_Connect(port):
 func _on_PortC_Connect(port):
 	ConnectPortFunction(port)
 
+func _on_StorageDisplay_in_Ui():
+	isInsideRAM = true
 
+func _on_StorageDisplay_out_Ui():
+	isInsideRAM = false

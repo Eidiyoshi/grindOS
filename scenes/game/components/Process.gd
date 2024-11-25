@@ -12,14 +12,15 @@ var connected = false
 
 var Dificulty = 10
 
-var Max = PlayerData.level * Dificulty
-var Min = (PlayerData.level - 1) * Dificulty
-
 var tick = 0
+
+var max_tries = 5
 
 var CPU
 
 func spawn():
+	var Max = PlayerData.level * Dificulty
+	var Min = (PlayerData.level - 1) * Dificulty
 	for i in Data.size() - 1:
 		Data[i] = RNG.randi_range(Min, Max)
 
@@ -40,10 +41,11 @@ func _process(delta):
 		tick += 1
 		if tick == PlayerData.processTick:
 			tick = 0
-			var aux = RNG.randi_range(0,3)
-			var flag = false
-			while Data[aux] == 0:
-				aux = RNG.randi_range(0,3)
+			var aux = RNG.randi_range(0,2)
+			var flag = 0
+			while Data[aux] == 0 and max_tries >= flag:
+				aux = RNG.randi_range(0,2)
+				flag += 1
 			if Data[aux] > 0:
 				process(aux)
 	else:
@@ -52,6 +54,8 @@ func _process(delta):
 func _ready():
 	CPU = get_parent().get_parent().get_node("CPU")
 	RNG.randomize()
+	var Max = PlayerData.level * Dificulty
+	var Min = (PlayerData.level - 1) * Dificulty
 	for i in Data.size() - 1:
 		Data[i] = RNG.randi_range(Min, Max)
 

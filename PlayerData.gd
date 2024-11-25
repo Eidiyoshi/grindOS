@@ -15,7 +15,7 @@ var portTick = 50
 var ramDataResistance = 10
 var secondaryDataResistance = 20
 
-var maxStorageRAM = 20
+var maxStorageRAM = 2000
 var maxStorageSecondary = 100
 
 var trashChance = 1
