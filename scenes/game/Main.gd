@@ -1,5 +1,7 @@
 extends Node2D
 
+var RNG = RandomNumberGenerator.new()
+
 var connectedCPU
 var connectingCPU = false
 var connectCPUFlag = false
@@ -8,16 +10,49 @@ var connectedRAM
 var connectingRAM = false
 var connectRAMFlag = false
 
+var RAMtick = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connectedCPU = get_node("CPU")
 	connectedRAM = get_node("RAM")
 
+func load_data_CPU_RAM(index):
+	if $RAM.Data[index] > 0:
+			$RAM.Data[index] -= 1
+			$CPU.Data[index] += 1
+
+func pass_data_CPU_RAM(index):
+	if $CPU.Data[index] > 0:
+			$CPU.Data[index] -= 1
+			$RAM.Data[index] += 1
+			if RNG.randi_range(0, PlayerData.trashChance) == 0:
+				$RAM.Data[3] += 1
+
+func transfer_data_CPU_RAM():
+	if $RAM/MemoryControl/Store.pressed:
+		if connectedCPU == $RAM/PortA and !$RAM.Full():
+			pass_data_CPU_RAM(0)
+		elif connectedCPU == $RAM/PortB and !$RAM.Full():
+			pass_data_CPU_RAM(1)
+		elif connectedCPU == $RAM/PortC and !$RAM.Full():
+			pass_data_CPU_RAM(2)
+	else:
+		if connectedCPU == $RAM/PortA and !$CPU.Full():
+			load_data_CPU_RAM(0)
+		elif connectedCPU == $RAM/PortB and !$CPU.Full():
+			load_data_CPU_RAM(1)
+		elif connectedCPU == $RAM/PortC and !$CPU.Full():
+			load_data_CPU_RAM(2)
+	
 func _process(delta):
-	if connectedCPU == $RAM:
-		var b
+	if connectedCPU.get_parent() == $RAM:
+		RAMtick += 1
+		if RAMtick == PlayerData.ramDataResistance:
+			RAMtick = 0
+			transfer_data_CPU_RAM()
 	if connectedRAM.get_parent() == $SecondaryMemory:
-		var c
+		print(connectedRAM.get_name())
 
 #Cabo CPU
 func ConnectCPUCable(component):

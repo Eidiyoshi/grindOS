@@ -10,8 +10,6 @@ var Data = [0, 0, 0, 0]
 var holding = false
 var isInsideRAM = false
 
-var load_store = false
-
 var connected = false
 
 var SecondaryMemory
@@ -64,9 +62,9 @@ func _process(delta):
 
 func Full():
 	var total = 0
-	for i in Data.size() - 1:
+	for i in Data.size():
 		total += Data[i]
-	if total == PlayerData.maxStorageRAM:
+	if total >= PlayerData.maxStorageRAM:
 		return true
 	else:
 		return false

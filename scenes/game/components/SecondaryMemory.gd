@@ -2,12 +2,11 @@ extends Area2D
 
 signal ConnectPort
 
-var load_store = true
-
 func _ready():
 	pass # Replace with function body.
 
 func ConnectPortFunction(port):
+	print(port.get_name())
 	emit_signal("ConnectPort",port)
 
 func _on_PortA_Connect(port):

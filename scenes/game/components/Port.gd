@@ -21,7 +21,9 @@ func _input(event):
 				emit_signal("Connect",self)
 
 func _on_Port_mouse_entered():
+	print("In port")
 	isInsidePort = true
 
 func _on_Port_mouse_exited():
+	print("Out port")
 	isInsidePort = false

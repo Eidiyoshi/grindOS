@@ -10,6 +10,10 @@ var total_size = 0
 
 func _ready():
 	Storage = get_parent()
+	$TypeA.value = 0
+	$TypeB.value = 0
+	$TypeC.value = 0
+	$Trash.value = 0
 
 func updateBar(Data):
 	

@@ -31,8 +31,6 @@ func _on_RAM_ConnectRAM(RAM):
 		ConnectCPUCable(connectedCPU)
 
 func _on_CPU_ConnectingCPU(value):
-	print("Connecting CPU")
-	print(value)
 	if !value:
 		$ConnectCPUDelay.start()
 	else:

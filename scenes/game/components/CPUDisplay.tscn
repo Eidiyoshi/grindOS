@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/game/components/StorageDisplay.gd" type="Script" id=1]
+[ext_resource path="res://CPUDisplay.gd" type="Script" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0, 0, 1 )
@@ -13,14 +13,9 @@ bg_color = Color( 0.0117647, 1, 0, 1 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.905882, 0.870588, 0.870588, 1 )
-
-[node name="StorageDisplay" type="Control"]
-anchor_right = 0.21
-anchor_bottom = 0.667
-margin_right = -0.0399933
-margin_bottom = -0.200012
+[node name="CPUDisplay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -62,20 +57,3 @@ custom_styles/bg = SubResource( 2 )
 step = 0.0
 value = 60.0
 percent_visible = false
-
-[node name="Trash" type="ProgressBar" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 0.0999756
-margin_bottom = 0.199997
-custom_styles/fg = SubResource( 5 )
-custom_styles/bg = SubResource( 2 )
-step = 0.0
-value = 50.0
-percent_visible = false
-
-[connection signal="mouse_entered" from="TypeA" to="." method="_on_TypeA_mouse_entered"]
-[connection signal="mouse_entered" from="TypeB" to="." method="_on_TypeB_mouse_entered"]
-[connection signal="mouse_entered" from="TypeC" to="." method="_on_TypeC_mouse_entered"]
-[connection signal="mouse_entered" from="Trash" to="." method="_on_Trash_mouse_entered"]
-[connection signal="mouse_exited" from="Trash" to="." method="_on_Trash_mouse_exited"]

@@ -22,6 +22,7 @@ func _input(event):
 			emit_signal("ConnectingCPU",false)
 
 func _process(delta):
+	$Sprite/CPUDisplay.updateBar(Data)
 	if holding:
 		var mouse_pos = get_local_mouse_position()
 		$Cable.position = Vector2((mouse_pos.x)/2,(mouse_pos.y)/2)
@@ -31,9 +32,10 @@ func _process(delta):
 
 func Full():
 	var total = 0
-	for i in Data.size() - 1:
+	for i in Data.size():
 		total += Data[i]
-	if total == PlayerData.maxStorageRAM:
+	print(total)
+	if total >= PlayerData.maxStorageCPU:
 		return true
 	else:
 		return false
