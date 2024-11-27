@@ -7,14 +7,15 @@ func _ready():
 	$TypeB.value = 0
 	$TypeC.value = 0
 	parent = self.get_parent().get_parent()
-	print(parent.get_name())
 
 func updateBar():
 	var Data = parent.Data
 	
-	$TypeA.max_value = PlayerData.maxStorageCPU
-	$TypeB.max_value = PlayerData.maxStorageCPU
-	$TypeC.max_value = PlayerData.maxStorageCPU
+	
+	
+	$TypeA.max_value = PlayerData.maxStorageSecondary
+	$TypeB.max_value = PlayerData.maxStorageSecondary
+	$TypeC.max_value = PlayerData.maxStorageSecondary
 	
 	var valueC = Data[2]
 	var valueB = valueC + Data[1]

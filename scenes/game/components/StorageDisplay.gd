@@ -9,13 +9,14 @@ var Storage
 var total_size = 0
 
 func _ready():
-	Storage = get_parent()
+	Storage = self.get_parent().get_parent()
 	$TypeA.value = 0
 	$TypeB.value = 0
 	$TypeC.value = 0
 	$Trash.value = 0
 
-func updateBar(Data):
+func updateBar():
+	var Data = Storage.Data
 	
 	$TypeA.max_value = PlayerData.maxStorageRAM
 	$TypeB.max_value = PlayerData.maxStorageRAM

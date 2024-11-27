@@ -22,7 +22,6 @@ func _input(event):
 			emit_signal("ConnectingCPU",false)
 
 func _process(delta):
-	$Sprite/CPUDisplay.updateBar(Data)
 	if holding:
 		var mouse_pos = get_local_mouse_position()
 		$Cable.position = Vector2((mouse_pos.x)/2,(mouse_pos.y)/2)

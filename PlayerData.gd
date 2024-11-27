@@ -17,11 +17,11 @@ var secondaryDataResistance = 20
 
 var maxStorageCPU = 50
 var maxStorageRAM = 100
-var maxStorageSecondary = 100
+var maxStorageSecondary = 200
 
 var trashChance = 20
 
-var patience = 500
+var patience = 400
 
 var coin = 0;
 

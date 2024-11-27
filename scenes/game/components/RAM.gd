@@ -39,7 +39,6 @@ func progress_process(aux):
 		SecondaryMemory.Data[aux] += 1
 
 func _process(delta):
-	$Sprite/StorageDisplay.updateBar(Data)
 	if connected:
 		tick += 1
 		if tick == PlayerData.processTick:

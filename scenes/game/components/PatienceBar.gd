@@ -17,4 +17,4 @@ func _on_PatienceDelay_timeout():
 		$ProgressBar.value = value
 		$PatienceDelay.start()
 	elif PlayerData.coin > 0:
-		PlayerData.coin -= PlayerData.coin * 0.005
+		PlayerData.coin -= PlayerData.coin * 0.001
