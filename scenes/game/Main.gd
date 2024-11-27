@@ -11,6 +11,7 @@ var connectingRAM = false
 var connectRAMFlag = false
 
 var RAMtick = 0
+var MemoryTick = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,16 +45,51 @@ func transfer_data_CPU_RAM():
 			load_data_CPU_RAM(1)
 		elif connectedCPU == $RAM/PortC and !$CPU.Full():
 			load_data_CPU_RAM(2)
-	
+	$CPU/Sprite/CPUDisplay.updateBar()
+	$RAM/Sprite/StorageDisplay.updateBar()
+
+func load_data_RAM_SecondMemory(index):
+	if $SecondaryMemory.Data[index] > 0:
+			$SecondaryMemory.Data[index] -= 1
+			$RAM.Data[index] += 1
+
+func pass_data_RAM_SecondMemory(index):
+	if $RAM.Data[index] > 0:
+		$RAM.Data[index] -= 1
+		$SecondaryMemory.Data[index] += 1
+
+func transfer_data_RAM_SecondMemory():
+	if !$SecondaryMemory/MemoryControl/Store.pressed:
+		if connectedRAM == $SecondaryMemory/PortA and !$RAM.Full():
+			load_data_RAM_SecondMemory(0)
+		elif connectedRAM == $SecondaryMemory/PortB and !$RAM.Full():
+			load_data_RAM_SecondMemory(1)
+		elif connectedRAM == $SecondaryMemory/PortC and !$RAM.Full():
+			load_data_RAM_SecondMemory(2)
+	else:
+		if connectedRAM == $SecondaryMemory/PortA and !$SecondaryMemory.Full():
+			pass_data_RAM_SecondMemory(0)
+		elif connectedRAM == $SecondaryMemory/PortB and !$SecondaryMemory.Full():
+			pass_data_RAM_SecondMemory(1)
+		elif connectedRAM == $SecondaryMemory/PortC and !$SecondaryMemory.Full():
+			pass_data_RAM_SecondMemory(2)
+	$RAM/Sprite/StorageDisplay.updateBar()
+	$SecondaryMemory/Sprite/SecondDisplay.updateBar()
+
 func _process(delta):
+	print(PlayerData.coin)
 	if connectedCPU.get_parent() == $RAM:
 		RAMtick += 1
 		if RAMtick == PlayerData.ramDataResistance:
 			RAMtick = 0
 			transfer_data_CPU_RAM()
 	if connectedRAM.get_parent() == $SecondaryMemory:
-		print(connectedRAM.get_name())
-
+		MemoryTick += 1
+		if MemoryTick == PlayerData.secondaryDataResistance:
+			MemoryTick = 0
+			transfer_data_RAM_SecondMemory()
+	if connectedCPU != $CPU:
+		$CPU/Sprite/CPUDisplay.updateBar()
 #Cabo CPU
 func ConnectCPUCable(component):
 	$CPU/Cable.global_position = Vector2(($CPU.global_position.x + component.global_position.x)/2,($CPU.global_position.y + component.global_position.y)/2)

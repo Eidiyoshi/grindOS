@@ -20,10 +20,8 @@ func _input(event):
 			if isInsidePort:
 				emit_signal("Connect",self)
 
-func _on_Port_mouse_entered():
-	print("In port")
+func _on_PortArea_mouse_entered():
 	isInsidePort = true
 
-func _on_Port_mouse_exited():
-	print("Out port")
+func _on_PortArea_mouse_exited():
 	isInsidePort = false

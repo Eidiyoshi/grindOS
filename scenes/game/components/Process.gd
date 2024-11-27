@@ -16,13 +16,21 @@ var tick = 0
 
 var max_tries = 5
 
+var patience = PlayerData.patience
+
 var CPU
 
-func spawn():
+func calcProcessData():
 	var Max = PlayerData.level * Dificulty
 	var Min = (PlayerData.level - 1) * Dificulty
 	for i in Data.size() - 1:
 		Data[i] = RNG.randi_range(Min, Max)
+	Data[3] *= Dificulty
+
+func spawn():
+	calcProcessData()
+	$Sprite/PatienceBar.start_bar()
+	self.visible = true
 
 func process(aux):
 	if !CPU.Full():
@@ -33,13 +41,19 @@ func process(aux):
 		for i in Data.size() - 1:
 			total += Data[i]
 		if total == 0:
-			spawn()
+			PlayerData.coin += PlayerData.level
+			self.visible = false
+			CPU.connected = false
+			var cable = CPU.get_node("Cable")
+			cable.scale.x = 0
+			$SpawnTimer.start()
 	
 		
 func _process(delta):
 	if connected:
 		tick += 1
-		if tick == PlayerData.processTick:
+		if tick == PlayerData.processTick and !CPU.Full():
+			$Sprite/PatienceBar.value = PlayerData.patience
 			tick = 0
 			var aux = RNG.randi_range(0,2)
 			var flag = 0
@@ -54,11 +68,9 @@ func _process(delta):
 func _ready():
 	CPU = get_parent().get_parent().get_node("CPU")
 	RNG.randomize()
-	var Max = PlayerData.level * Dificulty
-	var Min = (PlayerData.level - 1) * Dificulty
-	for i in Data.size() - 1:
-		Data[i] = RNG.randi_range(Min, Max)
-
+	calcProcessData()
+	$Sprite/PatienceBar.start_bar()
+	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1:
@@ -71,3 +83,7 @@ func _on_Process_mouse_entered():
 func _on_Process_mouse_exited():
 	isInsideProcess = false
 
+
+
+func _on_SpawnTimer_timeout():
+	spawn()
