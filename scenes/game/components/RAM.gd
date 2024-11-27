@@ -33,7 +33,7 @@ func _input(event):
 				holding = false
 				emit_signal("ConnectingRAM",false)
 
-func process(aux):
+func progress_process(aux):
 	if !SecondaryMemory.Full():
 		Data[aux] -= 1
 		SecondaryMemory.Data[aux] += 1
@@ -50,7 +50,7 @@ func _process(delta):
 				aux = RNG.randi_range(0,2)
 				flag += 1
 			if Data[aux] > 0:
-				process(aux)
+				progress_process(aux)
 	else:
 		tick = 0
 	if holding:
@@ -81,8 +81,8 @@ func _on_PortB_Connect(port):
 func _on_PortC_Connect(port):
 	ConnectPortFunction(port)
 
-func _on_StorageDisplay_in_Ui():
+func _on_RAM_mouse_entered():
 	isInsideRAM = true
 
-func _on_StorageDisplay_out_Ui():
+func _on_RAM_mouse_exited():
 	isInsideRAM = false

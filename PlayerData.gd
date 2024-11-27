@@ -21,6 +21,10 @@ var maxStorageSecondary = 100
 
 var trashChance = 20
 
+var patience = 500
+
+var coin = 0;
+
 func getLevel():
 	return level
 

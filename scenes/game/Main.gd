@@ -11,6 +11,7 @@ var connectingRAM = false
 var connectRAMFlag = false
 
 var RAMtick = 0
+var MemoryTick = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,7 +45,33 @@ func transfer_data_CPU_RAM():
 			load_data_CPU_RAM(1)
 		elif connectedCPU == $RAM/PortC and !$CPU.Full():
 			load_data_CPU_RAM(2)
-	
+
+func load_data_RAM_SecondMemory(index):
+	if $SecondaryMemory.Data[index] > 0:
+			$SecondaryMemory.Data[index] -= 1
+			$RAM.Data[index] += 1
+
+func pass_data_RAM_SecondMemory(index):
+	if $RAM.Data[index] > 0:
+		$RAM.Data[index] -= 1
+		$SecondaryMemory.Data[index] += 1
+
+func transfer_data_RAM_SecondMemory():
+	if $SecondaryMemory/MemoryControl/Store.pressed:
+		if connectedCPU == $SecondaryMemory/PortA and !$SecondaryMemory.Full():
+			pass_data_CPU_RAM(0)
+		elif connectedCPU == $SecondaryMemory/PortB and !$SecondaryMemory.Full():
+			pass_data_CPU_RAM(1)
+		elif connectedCPU == $SecondaryMemory/PortC and !$SecondaryMemory.Full():
+			pass_data_CPU_RAM(2)
+	else:
+		if connectedCPU == $SecondaryMemory/PortA and !$RAM.Full():
+			load_data_CPU_RAM(0)
+		elif connectedCPU == $SecondaryMemory/PortB and !$RAM.Full():
+			load_data_CPU_RAM(1)
+		elif connectedCPU == $SecondaryMemory/PortC and !$RAM.Full():
+			load_data_CPU_RAM(2)
+
 func _process(delta):
 	if connectedCPU.get_parent() == $RAM:
 		RAMtick += 1
@@ -52,7 +79,10 @@ func _process(delta):
 			RAMtick = 0
 			transfer_data_CPU_RAM()
 	if connectedRAM.get_parent() == $SecondaryMemory:
-		print(connectedRAM.get_name())
+		MemoryTick += 1
+		if MemoryTick == PlayerData.secondaryDataResistance:
+			MemoryTick = 0
+			transfer_data_RAM_SecondMemory()
 
 #Cabo CPU
 func ConnectCPUCable(component):

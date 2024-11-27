@@ -34,11 +34,12 @@ func Full():
 	var total = 0
 	for i in Data.size():
 		total += Data[i]
-	print(total)
 	if total >= PlayerData.maxStorageCPU:
 		return true
 	else:
 		return false
+
+
 
 
 func _on_CPU_mouse_entered():

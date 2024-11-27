@@ -16,6 +16,8 @@ var tick = 0
 
 var max_tries = 5
 
+var patience = PlayerData.patience
+
 var CPU
 
 func spawn():
@@ -38,6 +40,7 @@ func process(aux):
 		
 func _process(delta):
 	if connected:
+		$Sprite/PatienceBar.value = PlayerData.patience
 		tick += 1
 		if tick == PlayerData.processTick:
 			tick = 0
@@ -58,7 +61,9 @@ func _ready():
 	var Min = (PlayerData.level - 1) * Dificulty
 	for i in Data.size() - 1:
 		Data[i] = RNG.randi_range(Min, Max)
-
+	$Sprite/PatienceBar/ProgressBar.value = 0
+	$Sprite/PatienceBar.start_bar()
+	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1:
