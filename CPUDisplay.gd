@@ -7,7 +7,6 @@ func _ready():
 	$TypeB.value = 0
 	$TypeC.value = 0
 	parent = self.get_parent().get_parent()
-	print(parent.get_name())
 
 func updateBar():
 	var Data = parent.Data

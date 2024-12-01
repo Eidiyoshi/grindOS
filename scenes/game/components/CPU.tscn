@@ -22,10 +22,12 @@ scale = Vector2( 0.165, 0.165 )
 texture = ExtResource( 1 )
 
 [node name="CPUDisplay" parent="Sprite" instance=ExtResource( 4 )]
-margin_left = 327.274
-margin_top = -363.635
-margin_right = 327.274
-margin_bottom = -363.635
+process_priority = -1
+margin_left = -327.271
+margin_top = -363.637
+margin_right = -327.271
+margin_bottom = -363.637
+focus_mode = 1
 
 [node name="Cable" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 1e-05, 0.15 )

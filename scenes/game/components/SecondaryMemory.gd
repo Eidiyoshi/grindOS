@@ -18,7 +18,6 @@ func _ready():
 	
 
 func ConnectPortFunction(port):
-	print(port.get_name())
 	emit_signal("ConnectPort",port)
 
 func _on_PortA_Connect(port):

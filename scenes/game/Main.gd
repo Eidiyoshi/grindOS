@@ -77,7 +77,7 @@ func transfer_data_RAM_SecondMemory():
 	$SecondaryMemory/Sprite/SecondDisplay.updateBar()
 
 func _process(delta):
-	print(PlayerData.coin)
+	#(PlayerData.coin)
 	if connectedCPU.get_parent() == $RAM:
 		RAMtick += 1
 		if RAMtick == PlayerData.ramDataResistance:
