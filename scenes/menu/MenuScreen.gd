@@ -28,8 +28,7 @@ func _on_ButtonSair_pressed():
 
 
 func _on_ButtonJogar_pressed():
-	get_tree().change_scene("res://scenes/fases/fase1/fase1Contexto.tscn") # Replace with function body.
-
+	get_tree().change_scene("res://scenes/fases/fase1/fase1Contexto2.tscn") # Replace with function body.
 	call_deferred("free")
 
 

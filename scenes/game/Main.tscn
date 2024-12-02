@@ -52,6 +52,13 @@ margin_right = 115.0
 margin_bottom = 231.0
 text = "?"
 
+[node name="KnowBButonProcessos" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 387.0
+margin_right = 54.0
+margin_bottom = 424.0
+text = "?"
+
 [node name="KnowBlock" parent="." instance=ExtResource( 6 )]
 position = Vector2( -25, 26 )
 z_index = -1
@@ -66,3 +73,4 @@ z_index = -1
 [connection signal="pressed" from="KnowBButtonRAM" to="KnowBlock" method="_on_ButtonRAM_pressed"]
 [connection signal="pressed" from="KnowBButtonHDD" to="KnowBlock" method="_on_KnowBButtonHDD_pressed"]
 [connection signal="pressed" from="KnowBButtonCPU" to="KnowBlock" method="_on_KnowBButtonCPU_pressed"]
+[connection signal="pressed" from="KnowBButonProcessos" to="KnowBlock" method="_on_KnowBButonProcessos_pressed"]

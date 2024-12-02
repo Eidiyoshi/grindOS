@@ -36,8 +36,9 @@ func _on_ButtonRAM_pressed():
 
 	"RAM na vida real",
 
-	"Apesar de não existir restrições e apenas três tipos de dados,"+
-	"para fins de gameplay, foi implementado isso"
+	"Para fins de gameplay, foi implementado três tipos de dados, com o branco representado o 'lixo' " +
+	"da CPU para a RAM, escrever\n da RAM para a CPU, ler" +
+	"na barra das memórias, é possível conectar para os slots da memória secundária seguindo o mesmo princípio"
 	,
 
 	"A RAM (Random Acess Memory) permite armazenar informações "+
@@ -56,7 +57,7 @@ func _on_KnowBButtonHDD_pressed():
 	
 	"Memória secundária na vida real",
 	
-	"textohddjogo",
+	"No momento, fora armazenar os dados, ela não tem muita função, porém planejamos utilizar ela para salvar o jogo",
 	
 	"O HDD (Hard Disk Driver) permite armazenar informações "+
 	"permanentemente, mesmo após desligar o computador. Sendo o componente com o " +
@@ -72,7 +73,26 @@ func _on_KnowBButtonCPU_pressed():
 	
 	"CPU na vida real",
 	
-	"textocpujogo",
+	"Conecte a CPU para os processos, aguarde até finalizar\n"+
+	"Caso ela fique lotada, transfira para a memória RAM"
+	,
 	
-	"textocpurl"
+	"A CPU (Central Processing Unit) realiza as operações lógicas, aritméticas e processamento de dados"
+	);
+
+
+func _on_KnowBButonProcessos_pressed():
+	botaoPressionado(
+	"Processos no jogo",
+	
+	"Processos na vida real",
+	
+	"Os processos podem ser conectados a CPU, que será trabalhado e transferido os dados\n" +
+	"Existe uma barra de tempo ao lado, caso ela chegue ao zero, o jogador começara a perder moedas\n"+
+	"Para reiniciar, basta conectar a CPU ao processo em questão"
+	,
+	
+	"Um processo é uma instância de um programa, que contém as instruções para que o programa opere\n"+
+	"Existem vários estados de um processo, desde criando até encerrando. \n"+
+	"Um dos jeitos de multitarefa é compartilhar o tempo entre os processos, dando a impressão que o processador está fazendo multiplas tarefas ao mesmo tempo"
 	);

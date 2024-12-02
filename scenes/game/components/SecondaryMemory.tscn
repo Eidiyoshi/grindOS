@@ -24,12 +24,15 @@ margin_right = -233.0
 margin_bottom = -78.0
 
 [node name="PortA" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -87, -64 )
 
 [node name="PortB" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0, 1, 0.298039, 1 )
 position = Vector2( -87, 0 )
 
 [node name="PortC" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.101961, 0, 1, 1 )
 position = Vector2( -87, 64 )
 
 [node name="MemoryControl" parent="." instance=ExtResource( 5 )]
