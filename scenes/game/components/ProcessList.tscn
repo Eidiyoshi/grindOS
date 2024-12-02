@@ -22,7 +22,12 @@ position = Vector2( 252, 30 )
 position = Vector2( 326, 30 )
 
 [connection signal="Connect" from="Process1" to="." method="_on_Process1_Connect"]
+[connection signal="ProcessComplete" from="Process1" to="." method="_on_Process1_ProcessComplete"]
 [connection signal="Connect" from="Process2" to="." method="_on_Process2_Connect"]
+[connection signal="ProcessComplete" from="Process2" to="." method="_on_Process2_ProcessComplete"]
 [connection signal="Connect" from="Process3" to="." method="_on_Process3_Connect"]
+[connection signal="ProcessComplete" from="Process3" to="." method="_on_Process3_ProcessComplete"]
 [connection signal="Connect" from="Process4" to="." method="_on_Process4_Connect"]
+[connection signal="ProcessComplete" from="Process4" to="." method="_on_Process4_ProcessComplete"]
 [connection signal="Connect" from="Process5" to="." method="_on_Process5_Connect"]
+[connection signal="ProcessComplete" from="Process5" to="." method="_on_Process5_ProcessComplete"]

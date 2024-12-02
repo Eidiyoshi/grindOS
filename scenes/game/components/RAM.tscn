@@ -38,15 +38,15 @@ scale = Vector2( 0.07, 0.13 )
 z_index = -1
 
 [node name="PortA" parent="." instance=ExtResource( 4 )]
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 1, 0.0784314, 0.0784314, 1 )
 position = Vector2( -70.3333, -65.3333 )
 
 [node name="PortB" parent="." instance=ExtResource( 4 )]
-modulate = Color( 0.12549, 1, 0, 1 )
+modulate = Color( 0.0784314, 1, 0.0784314, 1 )
 position = Vector2( -70.3333, -1.33334 )
 
 [node name="PortC" parent="." instance=ExtResource( 4 )]
-modulate = Color( 0.0313726, 0, 1, 1 )
+modulate = Color( 0.0784314, 0.0784314, 1, 1 )
 position = Vector2( -70.3333, 62.6667 )
 
 [node name="MemoryControl" parent="." instance=ExtResource( 6 )]

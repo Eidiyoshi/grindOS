@@ -149,3 +149,7 @@ func _on_ConnectRAMDelay_timeout():
 	else:
 		connectedRAM.connected = true
 
+
+
+func _on_ProcessList_ProcessComplete():
+	connectedCPU = $CPU

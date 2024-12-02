@@ -1,6 +1,7 @@
 extends Area2D
 
 signal Connect
+signal ProcessComplete
 
 var RNG = RandomNumberGenerator.new()
 
@@ -73,6 +74,8 @@ func process(aux):
 		$Sprite/ProcessDisplay.updateBar()
 		
 		if dataEmpty():
+			emit_signal("ProcessComplete")
+			connected = false
 			PlayerData.coin += PlayerData.level
 			self.visible = false
 			CPU.connected = false
