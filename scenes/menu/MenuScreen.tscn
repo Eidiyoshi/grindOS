@@ -34,7 +34,7 @@ margin_bottom = 557.0
 
 [node name="JogarTxt" type="Label" parent="MenusTxt"]
 margin_right = 352.0
-margin_bottom = 106.0
+margin_bottom = 104.0
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 text = "Jogar
@@ -52,9 +52,9 @@ custom_styles/focus = SubResource( 4 )
 custom_styles/normal = SubResource( 3 )
 
 [node name="CreditosTxt" type="Label" parent="MenusTxt"]
-margin_top = 110.0
+margin_top = 112.0
 margin_right = 352.0
-margin_bottom = 217.0
+margin_bottom = 216.0
 size_flags_vertical = 7
 theme = ExtResource( 2 )
 text = "Créditos"
@@ -71,7 +71,7 @@ custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 3 )
 
 [node name="SairTxt" type="Label" parent="MenusTxt"]
-margin_top = 221.0
+margin_top = 224.0
 margin_right = 352.0
 margin_bottom = 328.0
 size_flags_vertical = 7
