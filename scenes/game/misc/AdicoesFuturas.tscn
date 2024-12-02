@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="AdicoesFuturas" type="Button"]
+margin_left = 809.0
+margin_top = 536.0
+margin_right = 1001.0
+margin_bottom = 577.0
+rect_pivot_offset = Vector2( -1261, -561 )
+text = "Adições futuras"
