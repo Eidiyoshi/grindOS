@@ -3,12 +3,12 @@
 [ext_resource path="res://scenes/game/misc/KnowBlock2d.gd" type="Script" id=1]
 [ext_resource path="res://arts/artText/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 outline_color = Color( 0.419608, 0.0392157, 0.0392157, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=1]
-default_font = SubResource( 2 )
+default_font = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )

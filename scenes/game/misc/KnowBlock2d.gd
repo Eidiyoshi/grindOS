@@ -36,8 +36,8 @@ func _on_ButtonRAM_pressed():
 
 	"RAM na vida real",
 
-	"Apesar de não existir restrições e apenas três tipos de dados,"+
-	"para fins de gameplay, foi implementado isso"
+	"A memória RAM pode se conectar com a CPU(cabo da CPU para a RAM) para receber ou enviar dados dentro dela,"+
+	"como também se conectar com a memória secundária para o mesmo propósito."
 	,
 
 	"A RAM (Random Acess Memory) permite armazenar informações "+
@@ -75,4 +75,16 @@ func _on_KnowBButtonCPU_pressed():
 	"textocpujogo",
 	
 	"textocpurl"
+	);
+
+func _on_KnowBButtonProcess_pressed():
+	botaoPressionado(
+	"Processo no jogo",
+	
+	"Processo na vida real",
+	
+	"textoprocessojogo",
+	
+	"É um pedaço de um programa que está sendo executado pelo computador, o papel de um sistema operacional é gerenciar recursos " +
+	"para realizar esses processos"
 	);
