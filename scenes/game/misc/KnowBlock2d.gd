@@ -1,20 +1,7 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	pass 
 
 func setTextGame( titulo:String, texto:String ):
 	$inGame.window_title = titulo
@@ -32,6 +19,10 @@ func botaoPressionado(tituloG, tituloR, textoG,textoR):
 	
 func adicoes(texto: String):
 	setTextGame("Adições futuras",texto)
+	$inGame.margin_bottom = 1096
+	$inGame.margin_left = 0
+	$inGame.margin_right = 1024
+	$inGame.margin_top = 40
 	$inGame.visible = 1 
 	
 func _on_ButtonRAM_pressed():
@@ -104,7 +95,7 @@ func _on_KnowBButonProcessos_pressed():
 
 func _on_AdicoesFuturas_pressed():
 	adicoes("Upgrades:\n" + 
-	"Upgrades serão uma progrmas/conceitos/harware que auxiliam na automação do sistema operacional exemplos são:\n" +
+	"Upgrades serão progrmas/conceitos/hardware que auxiliam na automação do sistema operacional exemplos são:\n" +
 	" - Os gerentes(escalonador de processos, gerente de arquivos e etc), programas que serão desbloqueados mais para o fim do jogo, onde automatizam o fluxo de dados\n" +
 	" - Quantum, será salvo uma configurção feita pelo jogador, de quanto tempo a CPU irá ficar conectada com cada processo e ao apertar um botão, essa configuração é realizada\n" +
 	" - Monoprogramado/multiprogramado será explicado com o desbloqueio de slots de processos(atualmente está começando com 5, mas provavelmente começará com 1 processo)\n" +
