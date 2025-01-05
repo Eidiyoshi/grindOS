@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/refactored/Part/StorageBarShort.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/refactored/Part/Port.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/refactored/Completed/CPU.gd" type="Script" id=3]
+[ext_resource path="res://scenes/refactored/Part/StorageBarCPU.gd" type="Script" id=4]
+[ext_resource path="res://scenes/refactored/Part/StorageDescriptionShort.tscn" type="PackedScene" id=5]
+[ext_resource path="res://arts/Branco.png" type="Texture" id=6]
+
+[node name="CPU" instance=ExtResource( 2 )]
+scale = Vector2( 2, 2 )
+script = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="." index="0"]
+scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="StorageDescriptionShort" parent="Sprite2" index="0" instance=ExtResource( 5 )]
+visible = false
+anchor_left = 1.0
+anchor_right = 3.0
+margin_left = -31.8
+margin_top = -32.2
+margin_right = -31.8
+margin_bottom = -32.2
+
+[node name="Sprite" parent="." index="1"]
+rotation = -1.5708
+
+[node name="StorageBarShort" parent="Sprite" index="0" instance=ExtResource( 1 )]
+margin_left = -31.9999
+margin_top = -32.0001
+margin_right = -31.9999
+margin_bottom = -32.0001
+script = ExtResource( 4 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_CPU_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_CPU_mouse_exited"]

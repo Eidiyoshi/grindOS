@@ -1,11 +1,13 @@
 extends Area2D
 
+signal Connecting_Port
+signal Received_Port
+
 var cable_scene: PackedScene = preload("res://scenes/refactored/Completed/Cable.tscn")
 
 var mouse_inside: bool = false
 var cable_inside: bool = false
 var connecting: bool = false
-var connected: Area2D
 
 var cable: Area2D
 
@@ -25,13 +27,16 @@ func _input(event) -> void:
 			connecting = true
 			cable = cable_scene.instance()
 			add_child(cable)
+			cable.scale.y = cable.scale.y / self.scale.y
 			print("Connecting " + self.name)
+			emit_signal("Connecting_Port",self)
 		elif not event.is_pressed() and cable_inside:
 			if connecting:
 				connecting = false
 				cable.queue_free()
-			else:
+			elif mouse_inside:
 				print("Received " + self.name)
+				emit_signal("Received_Port",self)
 				
 
 func _on_Port_mouse_entered() -> void:
@@ -50,6 +55,5 @@ func clear() -> void:
 	mouse_inside = false
 	cable_inside = false
 	connecting = false
-	connected = null
 	if cable != null:
 		cable.queue_free()
