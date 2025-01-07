@@ -1,4 +1,4 @@
-extends "res://scenes/refactored/Part/StorageBarShort.gd"
+extends "res://scenes/refactored/Part/SubPart/StorageBarShort.gd"
 
 func _ready():
 	$TypeA.value = 0

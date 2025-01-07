@@ -8,6 +8,7 @@ signal UpdatedRAMDataResistance
 signal UpdatedSecondaryDataResistance
 
 var level = 1
+var number_processes = 1
 
 var processTick = 10
 var portTick = 50

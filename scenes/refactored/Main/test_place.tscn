@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/refactored/Part/Port.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/refactored/Completed/Process.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/refactored/Completed/CPU.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/refactored/Main/test_place.gd" type="Script" id=3]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Port" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 46 )
-
-[node name="Port2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 255, 47 )
+script = ExtResource( 3 )
 
 [node name="CPU" parent="." instance=ExtResource( 2 )]
 position = Vector2( 170, 276 )
+
+[node name="Process" parent="." instance=ExtResource( 1 )]
+position = Vector2( 65, 94 )
+
+[node name="Process2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 348, 90 )
+
+[connection signal="Connecting_Port" from="CPU" to="." method="_on_CPU_Connecting_Port"]
+[connection signal="Received_Port" from="CPU" to="." method="_on_CPU_Received_Port"]
+[connection signal="Released" from="CPU" to="." method="_on_CPU_Released"]
+[connection signal="Connecting_Port" from="Process" to="." method="_on_Process_Connecting_Port"]
+[connection signal="Received_Port" from="Process" to="." method="_on_Process_Received_Port"]
+[connection signal="Released" from="Process" to="." method="_on_Process_Released"]

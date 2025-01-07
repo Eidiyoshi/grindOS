@@ -12,7 +12,11 @@ func UpdateTypeB(number: int) -> void:
 func UpdateTypeC(number: int) -> void:
 	$TypeC.text = "Type C - %d" % number
 
+func UpdateTypeD(number: int) -> void:
+	$TypeD.text = "Type D - %d" % number
+
 func UpdateAll(array: Array) -> void:
 	UpdateTypeA(array[0])
 	UpdateTypeB(array[1])
 	UpdateTypeC(array[2])
+	UpdateTypeD(array[3])

@@ -9,8 +9,6 @@ func _ready():
 func SumAll(array: Array) -> Array:
 	var result: Array = [0,0,0,0] 
 	for i in array.size():
-		print("Rep:")
-		print(i)
 		if i == 0:
 			result[-1] = array[-1]
 		else:
